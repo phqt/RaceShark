@@ -9,6 +9,7 @@ public class HatSpin : MonoBehaviour
 
     void Start()
     {
-        transform.DORotate(new Vector3(0, 360, 0), spinDuration, RotateMode.LocalAxisAdd).SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
+        //transform.DORotate(new Vector3(0, 360, 0), spinDuration, RotateMode.LocalAxisAdd).SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
+        transform.DORotate(new Vector3(0, 360, 0), spinDuration).SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
     }
 }
