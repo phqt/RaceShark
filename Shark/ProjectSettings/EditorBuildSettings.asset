@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/RTC_TestTrack_A.unity
+    path: Assets/Scripts/Scenes/RTC_TestTrack_A.unity
     guid: 8dd08b6c6a397414fa9d138bf8e248ba
   m_configObjects: {}

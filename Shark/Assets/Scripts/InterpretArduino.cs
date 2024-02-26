@@ -7,8 +7,8 @@ public class InterpretArduino : MonoBehaviour
 {
     public string[] values;
 
-    float horizontalInput = 0f;
-    float verticalInput = 0f;
+    public float horizontalInput = 0f;
+    public float verticalInput = 0f;
 
 
     // Invoked when a line of data is received from the serial device.
@@ -19,9 +19,24 @@ public class InterpretArduino : MonoBehaviour
         float xAxis = float.Parse(values[0]);
         float yAxis = float.Parse(values[1]);
 
-        // Map accelerometer data to Unity input axes
-        horizontalInput = xAxis; // Map to left/right steering
-        verticalInput = yAxis;   // Map to acceleration/braking
+
+        if (xAxis>500)
+        {  
+            horizontalInput = (xAxis-500)/100.0f;
+        }
+        else if (xAxis<300)
+        {
+            horizontalInput = -xAxis;
+        }
+
+        if (yAxis>500)
+        {   
+            verticalInput = (yAxis-500)/100.0f;
+        }
+        else if (yAxis<300)
+        {
+            verticalInput = -yAxis;
+        }   
 
         Debug.Log(xAxis);
         Debug.Log(yAxis);

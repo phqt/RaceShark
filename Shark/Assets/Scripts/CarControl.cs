@@ -11,6 +11,8 @@ public class CarControl : MonoBehaviour
     public float steeringRangeAtMaxSpeed = 10;
     public float centreOfGravityOffset = -1f;
 
+    public GameObject interpretArduinoHolder;
+    public InterpretArduino arduinoScript;
     WheelControl[] wheels;
     Rigidbody rigidBody;
 
@@ -24,6 +26,8 @@ public class CarControl : MonoBehaviour
 
         // Find all child GameObjects that have the WheelControl script attached
         wheels = GetComponentsInChildren<WheelControl>();
+
+        arduinoScript = interpretArduinoHolder.GetComponent<InterpretArduino>();
     }
 
     // Update is called once per frame
@@ -32,6 +36,11 @@ public class CarControl : MonoBehaviour
 
         float vInput = Input.GetAxis("Vertical");
         float hInput = Input.GetAxis("Horizontal");
+
+        //Debug.Log(Input.GetAxis("Vertical"));
+
+        vInput += arduinoScript.verticalInput;
+        hInput += hInput + arduinoScript.horizontalInput;
 
         // Calculate current speed in relation to the forward direction of the car
         // (this returns a negative number when traveling backwards)
