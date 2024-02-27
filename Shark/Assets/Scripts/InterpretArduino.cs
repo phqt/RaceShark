@@ -20,23 +20,15 @@ public class InterpretArduino : MonoBehaviour
         float yAxis = float.Parse(values[1]);
 
 
-        if (xAxis>500)
+        if (xAxis>540 || xAxis<500)
         {  
-            horizontalInput = (xAxis-500)/100.0f;
-        }
-        else if (xAxis<300)
-        {
-            horizontalInput = -xAxis;
+            horizontalInput = (xAxis-540)/200.0f;
         }
 
-        if (yAxis>500)
+        if (yAxis>540 || yAxis<500)
         {   
-            verticalInput = (yAxis-500)/100.0f;
+            verticalInput = (yAxis-540)/100.0f;
         }
-        else if (yAxis<300)
-        {
-            verticalInput = -yAxis;
-        }   
 
         Debug.Log(xAxis);
         Debug.Log(yAxis);
