@@ -9,7 +9,8 @@ public class InterpretArduino : MonoBehaviour
 
     public float horizontalInput = 0f;
     public float verticalInput = 0f;
-
+    public float hDiv = 0f;
+    public float vDiv = 0f;
 
     // Invoked when a line of data is received from the serial device.
     void OnMessageArrived(string msg)
@@ -22,12 +23,12 @@ public class InterpretArduino : MonoBehaviour
 
         if (xAxis>540 || xAxis<500)
         {  
-            horizontalInput = (xAxis-540)/200.0f;
+            horizontalInput = (xAxis-540)/hDiv;
         }
 
         if (yAxis>540 || yAxis<500)
         {   
-            verticalInput = (yAxis-540)/100.0f;
+            verticalInput = (yAxis-540)/vDiv;
         }
 
         Debug.Log(xAxis);

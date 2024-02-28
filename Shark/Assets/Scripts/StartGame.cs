@@ -8,6 +8,7 @@ using TMPro;
 public class StartGame : MonoBehaviour
 {
     public GameObject titleCam;
+    public GameObject thePlayer;
     //public GameObject playerCam;
     public GameObject titleCanvas;
     public Image btn;
@@ -17,13 +18,16 @@ public class StartGame : MonoBehaviour
 
     public void Start()
     {
+        
         titleCam.SetActive(false);
         btn.DOFade(0, 3f).SetEase(Ease.InOutSine);
         btnText.DOFade(0, 3f).SetEase(Ease.InOutSine);
         titleOne.DOFade(0, 3f).SetEase(Ease.InOutSine);
         titleTwo.DOFade(0, 3f).SetEase(Ease.InOutSine).OnComplete(() =>
             {
+                thePlayer.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 titleCanvas.SetActive(false);
+                //thePlayer.GetComponent<CarControl>().enabled = true;
             });
     }
 }
